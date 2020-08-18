@@ -139,3 +139,75 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+#contenido { 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#contenido img {
+  border-width: 4px;
+  border-style: solid;
+  border-color: aliceblue;
+  width: 200px;
+  padding: 0px;
+  margin: 0;
+  float: left;
+  margin-right: 15px;
+}
+
+#Inemail,
+#Inpassword {
+  width : 350px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#LogIN {
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 0.85;
+  border-radius: .3rem;
+
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+#buscar, 
+#limpiar {
+  padding: .5rem 2rem;
+  font-size: .75rem;
+  line-height: 0.3;
+  border-radius: .3rem;
+
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+#cajita {
+  padding: 1.2rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#rango-min, 
+#rango-max {
+  border-radius: 10px 10px;
+  background-color: rgb(247, 247, 247);
+  padding: 15px;
+  width: 210px;
+  height: 3px;
+}
+
+#filtro-rango-pag {
+  margin-left: 560px;
+  margin-top: 20px;
+  margin-bottom: -60px;
+}
