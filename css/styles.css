@@ -174,17 +174,6 @@ a.custom-card:hover {
   border-color: #007bff;
 }
 
-#buscar, 
-#limpiar {
-  padding: .5rem 2rem;
-  font-size: .75rem;
-  line-height: 0.3;
-  border-radius: .3rem;
-
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
 
 #cajita {
   padding: 1.2rem 1rem;
@@ -197,17 +186,60 @@ html {
   scroll-behavior: smooth;
 }
 
-#rango-min, 
-#rango-max {
-  border-radius: 10px 10px;
-  background-color: rgb(247, 247, 247);
-  padding: 15px;
-  width: 210px;
-  height: 3px;
+#filtrar, #clean {
+  float:left ; overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.932);
+  margin: 1px 2px;
+  transition-duration: 0.4s;
+  color: gray;
+  border-radius: 6px;
 }
 
-#filtro-rango-pag {
-  margin-left: 560px;
+#filtrar:hover, #clean:hover {
+  background-color: lightgray;
+}
+
+#lista-control {
+  margin-left: 35rem;
+  margin-top: 10px;
+}
+
+#ordenar-lista {
+  margin-left: 53rem;
+}
+
+#rangoMin, #rangoMax {
+  float:left ; overflow: hidden;
+  margin-top: 8x;
+  max-width: 5rem;
+  margin-right: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  text-shadow: 1px 1px 2px grey;
+}
+
+#filtro-precio {
+  margin-left: 4px;
   margin-top: 20px;
-  margin-bottom: -60px;
+  margin-bottom: -92px;
+}
+
+#out {
+  float:left ; overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.932);
+  margin-left: 100px;
+  margin-top: -10px;
+  transition-duration: 0.4s;
+  color: gray;
+  border-radius: 6px;
+}
+
+#userInfo {
+  margin-top: 10px;
+  color: white;
+}
+
+#price {
+  float:left;
+  margin-top: -50px;
 }

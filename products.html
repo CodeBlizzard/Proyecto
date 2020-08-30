@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="portal.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      </div>
-    </nav>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
 
-    <!---->
-    <div id="filtro-rango-pag">
-        <p>Filtrar por precio:</p>
-        <label for="rango-min" style="font-family: raleway;">Minimo</label>
-        <label for="rango-max" style="font-family: raleway;">Maximo</label><br>
-        <input type="number" placeholder="min." id="rango-min">
-        
-        <input type="number" placeholder="max." id="rango-max"><br><br>
-        <button id="buscar">Filtrar</button>
-        <button id="limpiar">Limpiar</button>
-    </div>
-    <div class="container p-5" id="contenido">
-    </div>
-    <footer class="text-muted bg-light">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="portal.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div id="mainUser" style="display: none;">
+        <p id="userInfo"></p><button id="out">Salir</button>
       </div>
-    </footer>
-    <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/products.js"></script>
-  </body>
+    </div>
+  </nav>
+
+
+
+  <div id="filtro-precio">
+<!-- Usar ID en <option> igual es algo suicida (no hay documentos sobre su uso) pero aparentemente el codigo sigue funcionando.
+El profe Daniel dijo incluso con errores puede funcionar y este puede ser el caso. 
+Anotación especial: consultar su viabilidad. -->    
+
+<!--
+    <button id="expensive">Mayor precio</button>
+    <button id="cheaper">Menor precio</button>
+    <button id="hot">Más relevantes</button>
+-->
+    <br>
+    <label id="ordenar-lista" for="lista-control">Ordenar productos: </label>
+    <select id="lista-control">
+      <option id="expensive">Mayor precio</option>
+      <option id="cheaper">Menor precio</option>
+      <option id="hot-sale">Más relevante</option>
+    </select>
+    <label id="price">Filtrar por precio: </label>
+    <input type="number" placeholder="min." id="rangoMin">
+    <input type="number" placeholder="max." id="rangoMax">
+    <button id="filtrar">Filtrar</button>
+    <button id="clean">Limpiar</button>
+  </div>
+  <br>
+
+  <div class="container p-5" id="contenido">
+  </div>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/products.js"></script>
+</body>
+
 </html>

@@ -2,6 +2,12 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+const ASCENDANT_PRICE = "asc_price";
+const DESCENDANT_PRICE = "desc_price";
+const RELEVANCE = "sold_units";
+
+// En categories.js se usa "AZ" "ZA" y "Cant." en las constantes
+
 var productsArray = [];
 
 var minPrice = undefined;
@@ -32,15 +38,129 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             productsArray = resultObj.data;
 
+            productsArray = sortProducts(ASCENDANT_PRICE, productsArray);
+
             showProductsList(productsArray);
         }
     });
 });
 
-document.getElementById("buscar").addEventListener("click", function() {
+/*
+Forma de ordenar:
 
-    minPrice = document.getElementById("rango-min").value;
-    maxPrice = document.getElementById("rango-max").value;
+const array_uno = [1, 100, 6, 200, 9, 7];
+const array_dos = [
+    { nombre: "Max", apellido: "Verstappen"},
+    { nombre: "Carlos, apellido: "Sainz"},
+    { nombre: "Esteban", apellido: "Ocon"},
+    { nombre: "Lewis", apellido: "Hamilton"},
+]
+array_uno.sort((a, b)){
+    if (a < b){
+        return -1;
+    }
+
+    if (a > b){
+        return 1;
+    }
+
+    return 0;
+}
+
+array_dos.sort((a, b)){
+    return a-b;
+}
+
+array_dos.sort((a, b)){
+    if (a.apellido > b.apellido) {
+        return -1;
+    }
+    if (a.apellido < b.apellido) {
+        return 1
+    }
+    return 0
+}
+
+Pueden darse problemas con las mayusculas y minusculas
+*/
+
+function sortProducts(criterio, array) {
+    let result = [];
+
+    if (criterio == ASCENDANT_PRICE) {
+        result = array.sort(function (a, b) {
+
+            if (a.cost < b.cost) {
+                return -1;
+            }
+
+            if (a.cost > b.cost) { 
+                return 1;
+            }
+            return 0;
+        });
+    } else if (criterio == DESCENDANT_PRICE) {
+        result = array.sort(function (a, b) {
+
+            if (a.cost > b.cost) {
+                return -1;
+            }
+            if (a.cost < b.cost) {
+                return 1;
+            }
+            return 0;
+        });
+    } else if (criterio == RELEVANCE) {
+        result = array.sort(function (a, b) {
+
+            if (a.soldCount > b.soldCount) {
+                return -1;
+            }
+
+            if (a.soldCount < b.soldCount) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
+    return result;
+}
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data;
+
+            productsArray = sortProducts(ASCENDANT_PRICE, productsArray);
+
+            showProductsList(productsArray);
+        }
+    });
+    // Se busca el id del elemento y al ser seleccionado se ordenan los productos
+    document.getElementById("cheaper").addEventListener("click", function () {
+        productsArray = sortProducts(ASCENDANT_PRICE, productsArray);
+
+        showProductsList(productsArray);
+    });
+
+    document.getElementById("expensive").addEventListener("click", function () {
+        productsArray = sortProducts(DESCENDANT_PRICE, productsArray);
+
+        showProductsList(productsArray);
+    });
+
+    document.getElementById("hot-sale").addEventListener("click", function () {
+        productsArray = sortProducts(RELEVANCE, productsArray);
+
+        showProductsList(productsArray);
+    });
+});
+
+document.getElementById("filtrar").addEventListener("click", function() {
+
+    minPrice = document.getElementById("rangoMin").value;
+    maxPrice = document.getElementById("rangoMax").value;
 
     if ((minPrice != undefined) && (minPrice != "") && (parseInt(minPrice)) >= 0) {
         minPrice = parseInt(minPrice);
@@ -60,10 +180,10 @@ document.getElementById("buscar").addEventListener("click", function() {
 
     showProductsList(productsArray);
 });
-
-document.getElementById("limpiar").addEventListener("click", function() {
-    document.getElementById("rango-min").value = "";
-    document.getElementById("rango-max").value = "";
+//Regresa al orden normal si no se define un valor
+document.getElementById("clean").addEventListener("click", function() {
+    document.getElementById("rangoMin").value = "";
+    document.getElementById("rangoMax").value = "";
 
     minPrice = undefined;
     maxPrice = undefined;

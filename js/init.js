@@ -6,12 +6,19 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const USUARIOS_URL = "https://raw.githubusercontent.com/CodeBlizzard/Proyecto-JAP2020/master/usuarios.json";
 
 var showSpinner = function(){
-  document.getElementById("spinner-wrapper").style.display = "block";
+  var spinner = document.getElementById("spinner-wrapper");
+  if (spinner){
+    spinner.style.display = "block";
+  }
 }
-
+//El spinner tira error, tratar de modificarlo mejor luego
 var hideSpinner = function(){
+  if (document.getElementById("spinner-wrapper") == null){
+    return;
+  }
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
@@ -44,4 +51,26 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
+  let masterUser = localStorage.getItem('activeUser');
+  let infoUser = document.getElementById("mainUser");
+  let user = document.getElementById("userInfo");
+
+  if (masterUser) {
+    masterUser = JSON.parse(masterUser);
+
+    //Nota recordatoria, crear en el json de usuarios una foto de perfil para agregar aquí
+    //Mostrar foto en lugar de mail, ambos datos posibles para entrega 7
+    
+    user.innerText = user.innerText + masterUser.email;
+    infoUser.style = "display: inline-block";
+  }
+
+  
+  document.getElementById("out").addEventListener("click", function(){
+
+    localStorage.removeItem('activeUser');
+
+    window.location = 'index.html';
+  });
 });
