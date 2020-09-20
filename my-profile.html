@@ -40,7 +40,15 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="dropdown" id="mainUser" style="display: none;">
+        <button id="userInfo" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: inline-end; margin-top: -25px;">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <a href="cart.html" id="shopCart" class="dropdown-item">Mi carrito</a>
+          <a href="my-profile.html" id= "myProfile" class="dropdown-item">Configuracion</a>
+          <a id="out" class="dropdown-item">Salir</a>
+        </div>
+      </div>
     </div>
   </nav>
   <div class="container p-5">

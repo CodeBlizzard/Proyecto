@@ -224,22 +224,17 @@ html {
   margin-bottom: -92px;
 }
 
-#out {
-  float:left ; overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.932);
-  margin-left: 100px;
-  margin-top: -10px;
-  transition-duration: 0.4s;
-  color: gray;
-  border-radius: 6px;
-}
-
-#userInfo {
-  margin-top: 10px;
-  color: white;
-}
-
 #price {
   float:left;
   margin-top: -50px;
+}
+
+.carousel{
+  height: 300px;
+  width: 400px;
+}
+
+.carousel-item img{
+  height: 300px;
+  width: 400px;
 }

@@ -26,6 +26,7 @@ function showProductsList(array){
             contenido += '<b>' + 'Descripción: ' + '</b>' + category.description + '<br>';
             contenido += '<b>' + 'Precio (en ' + category.currency + '):' + '</b>' + ' $' + category.cost + '<br>' + '<br>';
             contenido += 'Unidades vendidas: ' + category.soldCount;
+            contenido += '<a href="product-info.html"><button style = "float: right;"> Ver producto </button></a>'
             contenido += '<br><br><br><hr><br>';
         }
 

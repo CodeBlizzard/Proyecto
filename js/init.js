@@ -47,9 +47,6 @@ var getJSONData = function(url){
     });
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
   let masterUser = localStorage.getItem('activeUser');
@@ -58,10 +55,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   if (masterUser) {
     masterUser = JSON.parse(masterUser);
-
-    //Nota recordatoria, crear en el json de usuarios una foto de perfil para agregar aquí
-    //Mostrar foto en lugar de mail, ambos datos posibles para entrega 7
-    
     user.innerText = user.innerText + masterUser.email;
     infoUser.style = "display: inline-block";
   }

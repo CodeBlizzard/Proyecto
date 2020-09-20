@@ -1,7 +1,3 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
 var usersArray = [];
 
 function checkInfo(array, enterUser, enterPass){
@@ -21,17 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         let inEmail = document.getElementById("inEmail");
         let inPass = document.getElementById("inPass");
         let complete = true;
-
-        /*
-        complete verifica que ambos campos no esten vacios
-        if (password.value === "" || email.value === "") {
-            complete = false;
-            alert("Debes ingresar los datos");
-        }
-        if (complete){
-            window.location = 'portal.html';
-        } */
-
+        
         if (inEmail.value === '') {
             inEmail.classList.add("invalid");
             complete = false;
