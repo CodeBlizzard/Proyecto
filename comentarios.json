@@ -1,0 +1,26 @@
+[
+    {
+        "calificacion": 4,
+        "comentarios": "AaA",
+	"usuario": "fulana@mail.com",
+	"dataTime": "2020-1-17 12:22:13"
+    },
+    {
+        "calificacion": 1,
+        "comentarios": "BbB",
+	"usuario": "carlos@mail.com",
+	"dataTime": "2020-2-22 04:28:01"
+    },
+    {
+        "calificacion": 3,
+        "comentarios": "CcC",
+	"usuario": "pepe@mail.com",
+	"dataTime": "2020-4-19 11:02:24"
+    },
+    {
+        "calificacion": 5,
+        "comentarios": "DdD",
+	"usuario": "carmen@mail.com",
+	"dataTime": "2020-8-21 08:20:11"
+    }
+]
